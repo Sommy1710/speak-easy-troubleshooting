@@ -1,5 +1,5 @@
 # Speak Easy API
-This is a node js API that handles user Registration (creation) and user Authentication
+#This is a node js API that handles user Registration (creation) and user Authentication
 
 ##Features
 User registration and login (JWT authentication)
