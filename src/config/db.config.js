@@ -4,14 +4,12 @@ import {config} from 'dotenv'
 const initializeDatabaseConnection = () =>
 {
     config();
-    const {MONGO_URI, NODE_ENV} = process.env;
+    const {MONGO_URI, STAGING_MONGO_URI, NODE_ENV} = process.env;
 
-    let mongoUri = MONGO_URI;
-    if (NODE_ENV === "development")
-    {
-        mongoUri = "mongodb://localhost:27017";
+    let mongoUri = NODE_ENV === "DEVELOPMENT" ? STAGING_MONGO_URI : MONGO_URI;
+   
 
-    }
+
     mongoose.connect(mongoUri);
     const db = mongoose.connection;
     db.on('error', console.error.bind(console, 'connection error:'));
